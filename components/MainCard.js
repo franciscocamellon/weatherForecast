@@ -1,6 +1,9 @@
 import React, {useState} from 'react';
-import {StyleSheet, View, Text, TouchableOpacity} from 'react-native';
+import {StyleSheet, View, Text, TouchableOpacity, Dimensions} from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+
+const width = Dimensions.get('window').width;
+const height = Dimensions.get('window').height;
 
 const MainCard = (props) => {
   const styles = StyleSheet.create({
@@ -9,29 +12,29 @@ const MainCard = (props) => {
       justifyContent: 'center',
       alignItems: 'center',
       margin: 10,
-      width: 110,
-      height: 210,
+      width: width*0.265,
+      height: height*0.23,
       borderRadius: 15,
     },
 
     refreshButtom: {
       position: 'absolute',
-      margin: 30,
+      margin: 10,
       alignSelf: 'flex-start',
     },
     cardTitle: {
       color: 'white',
-      margin: 15,
+      margin: 10,
       fontSize: 20,
     },
     cardIcon: {
       color: 'white',
-      margin: 15,
+      margin: 5,
     },
     text: {
       color: 'white',
-      margin: 15,
-      fontSize: 20,
+      margin: 10,
+      fontSize: 19,
     },
   });
 
@@ -40,7 +43,7 @@ const MainCard = (props) => {
       <Text style={styles.text}>{props.title}</Text>
       <Ionicons
         name={props.icon}
-        size={40}
+        size={35}
         color="white"
         style={styles.cardIcon}
       />
