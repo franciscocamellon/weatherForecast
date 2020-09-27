@@ -5,7 +5,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 const MainCard = (props) => {
   const styles = StyleSheet.create({
     card: {
-      backgroundColor: 'red',
+      backgroundColor: props.backgroundColor,
       justifyContent: 'center',
       alignItems: 'center',
       margin: 10,
@@ -19,14 +19,32 @@ const MainCard = (props) => {
       margin: 30,
       alignSelf: 'flex-start',
     },
-    cardView: {},
+    cardTitle: {
+      color: 'white',
+      margin: 15,
+      fontSize: 20,
+    },
+    cardIcon: {
+      color: 'white',
+      margin: 15,
+    },
+    text: {
+      color: 'white',
+      margin: 15,
+      fontSize: 20,
+    },
   });
 
   return (
     <View style={styles.card}>
-      <Text style={styles.cardTitle}>Manhã</Text>
-      <Ionicons name="sunny" size={40} color="orange" style={{marginTop: 55}} />
-      <Text style={styles.cardTitle}>21°C</Text>
+      <Text style={styles.text}>{props.title}</Text>
+      <Ionicons
+        name={props.icon}
+        size={40}
+        color="white"
+        style={styles.cardIcon}
+      />
+      <Text style={styles.text}>{props.temperature}°</Text>
     </View>
   );
 };

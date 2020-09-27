@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import {StyleSheet, View, Text, TouchableOpacity} from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import MainCard from './components/MainCard';
+import InfoCard from './components/InfoCard';
 
 function App() {
   const [darkTheme, setDarkTheme] = useState(true);
@@ -36,6 +37,20 @@ function App() {
       alignItems: 'center',
       justifyContent: 'center',
     },
+    info: {
+      alignItems: 'center',
+      backgroundColor: darkTheme ? '#393e54' : '#8f8f8f',
+      borderRadius: 20,
+      width: 350,
+      height: 230,
+    },
+    infoText: {
+      color: darkTheme ? '#e0e0e0' : 'white',
+      margin: 15,
+      fontSize: 20,
+      fontWeight: 'bold',
+
+    }
   });
 
   return (
@@ -53,9 +68,19 @@ function App() {
         <Text style={[styles.temperatureText, {fontSize: 15}]}>°C</Text>
       </View>
       <View style={styles.cardView}>
-        <MainCard title={'blabla'}></MainCard>
-        <MainCard title={'blabla'}></MainCard>
-        <MainCard title={'blabla'}></MainCard>
+        <MainCard title={'Manhã'} temperature={'21'} backgroundColor={darkTheme ? '#ff873d' : '#cc6e30'} icon={'sunny'}></MainCard>
+        <MainCard title={'Tarde'} temperature={'37'} backgroundColor={darkTheme ? '#d29600' : '#fcc63f'} icon={'sunny'}></MainCard>
+        <MainCard title={'Noite'} temperature={'12'} backgroundColor={darkTheme ? '#008081' : '#388788'} icon={'moon'}></MainCard>
+
+      </View>
+      <View style={styles.info}>
+        <Text style={styles.infoText}> Informações adicionais</Text>
+        <View style={styles.infoCard}>
+          <InfoCard title={'Wind'} value={'65 km/h'}></InfoCard>
+          <InfoCard title={'Wind'} value={'65 km/h'}></InfoCard>
+          <InfoCard title={'Wind'} value={'65 km/h'}></InfoCard>
+          <InfoCard title={'Wind'} value={'65 km/h'}></InfoCard>
+        </View>
       </View>
     </View>
   );
